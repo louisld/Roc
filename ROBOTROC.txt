@@ -1,0 +1,107 @@
+AxesOff
+Lbl A
+ClrDraw
+Menu("Liste ROC","Inegalite de Bernoulli",R1,"Theoreme de majoration",R2,"Suite croissante convergente",R3,"Limite q^n",R4,"Divergence monotone",R5,"Proba independance",R6,"Quitter", Q)
+
+Lbl Q
+Return
+
+Lbl R1
+ClrDraw
+Text(0,0,"Inegalite de Bernoulli")
+Text(12,0,"{(1+x)^n>=1+nx")
+Text(24,0,"{n entier naturel")
+Text(36,0,"{x reel positif")
+Text(48,0,"Demonstration")
+Text(60,0,"1)Initialisation (1+x)^0=1 1>=1
+Text(72,0,"             Verifie pour n=0")
+Text(84,0,"2)Heredite (1+x)^n>=1+nx")
+Text(96,0,"<=> (1+x)^n+1>=(1+nx)(1+n)")
+Text(108,0,"<=> (1+x)^n+1>=1+x+nx+nx^2")
+Text(120,0,"<=> (1+x)^n+1>=1+(n+1)x+nx^2>=1+x(n+1)")
+Text(132,0,"3)Vrai n=0 et hered. vrai tout n")
+Pause 
+Goto A
+
+Lbl R2
+ClrDraw
+Text(0,0,"Soit u et v deux suites")
+Text(12,0,"u_n<=v_n a partir d'un certain rang")
+Text(24,0,"lim(u_n)=+inf alors lim(v_n)=+inf")
+Text(36,0,"1) Il existe n_0 tel que :")
+Text(48,0,"pour tout n>=n_0, u_n<=v_n")
+Text(60,0,"2)Pour tout seuil A, il existe n_1")
+Text(72,0,"tel que pour tout n>=n_1 : u_n>A")
+Text(84,0,"Soit n_2=max(n_0;n_1)")
+Text(96,0,"Pour tout n>=n_2 : v_n>=u_n>A")
+Text(108,0,"Ce qui est la definition de")
+Text(120,0,"lim(v_n)=+inf")
+Pause 
+Goto A
+
+Lbl R3
+ClrDraw
+Text(0,0,"Suite croissante convergente"
+Text(12,0,"Si une est croissante et admet une limite L")
+Text(24,0,"Alors tous les termes de la suite<=L")
+Text(36,0,"Raisonnement par l'absurde")
+Text(48,0,"Il existe un entier u_p tel que u_p>L")
+Text(60,0,"Or u est croiss. donc pour tout n>=p :")
+Text(72,0,"u_n>=u_p>L / On pose h=u_p-L alors")
+Text(84,0,"Pour tout n>=p u_n>=u_p>L")
+Text(96,0,"<=>u_n-L>=u_p-L>0")
+Text(108,0,"<=> u_n-L>=h")
+Text(120,0,"Cela met en defaut la def. de la limite")
+Text(132,0,"u ne converge pas vers L. Absurde")
+Pause 
+Goto A
+
+Lbl R4
+ClrDraw
+Text(0,0,"lim(q^n)=")
+Text(12,0,"+inf si q>0 , 0 si -1<q<1")
+Text(24,0,"pas de limite si q<-1")
+Text(36,0,"Demonstration q>1")
+Text(48,0,"On utilise inegalite Bernoulli"
+Text(60,0,"Soit q=1+x <=> x=q-1")
+Text(72,0,"Donc q^n>=1+n(q-1)")
+Text(84,0,"q>1 donc x>0 inegalite s'applique")
+Text(96,0,"lim(n)=+inf lim(q-1)=q-1")
+Text(108,0,"Donc lim(n(q-1))=+inf par produit")
+Text(120,0,"Donc lim(1+n(q-1)=+inf par somme")
+Text(132,0,"D'apres theor. maj. lim(q^n)=+inf")
+Pause 
+Goto A
+
+Lbl R5
+ClrDraw
+Text(0,0,"Divergence monotone")
+Text(12,0,"Toute suite croissante")
+Text(24,0,"et non majoree diverge vers +inf")
+Text(36,0,"Soit u une suite crois. et maj.")
+Text(48,0,"Demontrons que lim(u_n)=+inf")
+Text(60,0,"Soit un seuil A>0")
+Text(72,0,"Prenons M=A suite non maj. donc il existe")
+Text(84,0,"un rang n_0 tel que u_n0>A")
+Text(96,0,"Or u est croissante donc")
+Text(108,0,"n>=n_0 =>u_n>=u_n0>A")
+Text(120,0,"On a prouve  que pour tout seuil A")
+Text(132,0,"Il existe n>=n_0=>u_n>A")
+Text(144,0,"Ce qui est la def de lim(u_n)=+inf")
+Pause 
+Goto A
+
+Lbl R6
+ClrDraw
+Text(0,0,"remplacement de A barre par C")
+Text(12,0,"et le symbole inter par ^")
+Text(24,0,"Si A et B indep. alors C et B aussi")
+Text(36,0,"On suppose p(A^B)=p(A)p(B)")
+Text(48,0,"Demontrons p(C^B)=p(C)p(B)")
+Text(60,0,"p(A^B)+p(C^B)=p(B)"
+Text(72,0,"Donc p(C^B)=p(B)-p(A^B)"
+Text(84,0,"<=> p(C^B)=p(B)-p(A)p(B)")
+Text(96,0,"<=> p(C^B)=p(B)(1-p(A))")
+Text(108,0,"<=> p(C^B)=p(B)p(C)")
+Pause 
+Goto A
