@@ -1,9 +1,14 @@
 AxesOff
 Lbl A
 ClrDraw
-Menu("Liste ROC","Inegalite de Bernoulli",R1,"Theoreme de majoration",R2,"Suite croissante convergente",R3,"Limite q^n",R4,"Divergence monotone",R5,"Proba independance",R6,"Quitter", Q)
+Menu("Liste ROC","Inegalite de Bernoulli",R1,"Theoreme de majoration",R2,"Suite croissante convergente",R3,"Limite q^n",R4,"Divergence monotone",R5,"Proba independance",R6,"Theroreme du toit",R7,"Suivant",B,"Quitter",Q)
+
+Lbl B
+ClrDraw
+Menu("Liste ROC (2)","Positivite exponentielle",R8,"Unicite exponentielle",R9,"Limite e^x en +inf",S1,"Limite e^x en -inf",S2,"Limite e^x/x en +inf",S3,"Quitter",Q)
 
 Lbl Q
+AxesOn
 Return
 
 Lbl R1
@@ -103,5 +108,174 @@ Text(72,0,"Donc p(C^B)=p(B)-p(A^B)"
 Text(84,0,"<=> p(C^B)=p(B)-p(A)p(B)")
 Text(96,0,"<=> p(C^B)=p(B)(1-p(A))")
 Text(108,0,"<=> p(C^B)=p(B)p(C)")
+Pause 
+Goto A
+
+Lbl R7
+ClrDraw
+Text(0,0,"Theoreme du toit")
+Text(12,0,"Soient d//d'et P et P' deux plans")
+Text(24,0,"d c P et d' c P' (inclus)")
+Text(36,0,"On suppose P et P' secants avec")
+Text(48,0,"DELTA leur droite d'intersection")
+Text(60,0,"Prouvons que DELTA//d//d'. Soient")
+Text(72,0,"u vecteur directeur de d et v de DELTA")
+Text(84,0,"Prouvons que u et v sont colineaires")
+Text(96,0,"Par l'absurde")
+Text(108,0,"u dirige d' c P' et v dirige DELTA c P'")
+Text(120,0,"=> (u;v) est aussi une base de P")
+Text(132,0,"Donc P et P' ont la meme base")
+Text(144,0,"Ce qui contredit l'hypothese")
+Pause 
+Goto A
+
+Lbl R8
+ClrDraw
+Text(0,0,"Soit une fonction f telle que f'=f")
+Text(12,0,"et f(0)=1")
+Text(24,0,"On pose g(x)=f(x)*(f(-x) prouvons que")
+Text(36,0,"g est constante. f def et der sur R")
+Text(48,0,"g aussi"
+Text(60,0,"g'(x)=f'(x)f(-x)-f(x)f'(-x)=0")
+Text(72,0,"car f'=f donc g est constante")
+Text(84,0,"g(0)=f(0)f(-0)=1")
+Text(96,0,"Prouvons que f(x) =/= ")
+Text(108,0,"Absurde : il existe x0 tel que")
+Text(120,0,"f(x0)=0 donc g(x0)=f(x0)f(-x0)=0")
+Text(132,0,"Ce qui contredit g(x)=1")
+Pause 
+ClrDraw
+Text(0,0,"Prouvons que f(x)>0")
+Text(12,0,"Absurde : il existerait x0 tel que")
+Text(24,0,"f(x0)<=0 or f(x0)=/=0")
+Text(36,0,"On aurait donc f(x0)<0
+Text(48,0,"Or f est derivable donc continue")
+Text(60,0,"f(0)=1 et f(x0)<0 => d'apres le")
+Text(72,0,"theoreme des valeurs intermediaire")
+Text(84,0,"il existerait f(x)=0")
+Text(96,0,"Or f(x)=/=0")
+Pause 
+Goto A
+
+Lbl R9
+ClrDraw
+Text(0,0,"Soit une fonction f telle que f'=f")
+Text(12,0,"et f(0)=1")
+Text(24,0,"Soit g verifiant les memes conditions")
+Text(36,0,"Prouvons que g et f sont confondues")
+Text(48,0,"On pose h=f/g")
+Text(60,0,"Prouvons que h est constante =1")
+Text(72,0,"g=/=0 donc pas de valeur interdite")
+Text(84,0,"h est definie sur R")
+Text(96,0,"f et g derivable donc h aussi sur R")
+Text(108,0,"h'=(f/g)'=(f'g-g'f)/(g^2)")
+Text(120,0,"h'=(fg-fg)/(g^2)=0")
+Text(132,0,"h(0)=1/1=1")
+Text(144,0,"h est constante egale a 1")
+Pause 
+Goto A
+
+Lbl S1
+ClrDraw
+Text(0,0,"lim(e^x)=+inf quand x tend +inf")
+Text(12,0,"Lorsque x=0 la tangente T0")
+Text(24,0,"A pour equation: y=f'(x)(x-0)+f(0)")
+Text(36,0,"<=> y=1+x"
+Text(48,0,"Pour etudier Cexp et T0, on compare les deux f.")
+Text(60,0,"d(x)=e^x-x-1 <=> d'(x)=e^x-1")
+Text(72,0,"d'(x)>0 <=> x>0"
+Pause 
+ClrDraw
+Line(~20,8,20,8)
+Text(0,0,"X")
+Line(~5,~4,~5,20)
+Text(28,0,"signe d'(x)")
+Line(~20,4,20,4)
+Text(60,0,"var d(x)")
+Line(~20,0,20,0)
+Text(92,0,"signe d(x)")
+Text(0,90,"-inf")
+Line(3,8,3,4)
+Text(0,170,"0")
+Text(28,170,"0")
+Text(0,220,"+inf")
+Text(28,110,"-")
+Text(28,200,"+")
+Text(60,170,"0")
+Line(~4,3,1,1)
+Line(4,1,8,3)
+Text(92,110,"+")
+Text(92,200,"+")
+Text(92,170,"0")
+Line(3,0,3,~4)
+Pause 
+ClrDraw
+Text(0,0,"Donc Cexp est au dessus de sa")
+Text(12,0,"tangente en x=0 e^x>=x+1 sur R")
+Text(24,0,"Or lim(x+1)=+inf quand x tend vers +inf")
+Text(36,0,"Donc par majoration : ")
+Text(48,0,"lim(e^x)=+inf quand x tend vers +inf")
+Pause 
+Goto A
+
+Lbl S2
+ClrDraw
+Text(0,0,"lim(e^x)=0 quand x tend vers -inf")
+Text(12,0,"Pour tout x reel : e^(-x)=1/e^x")
+Text(24,0,"On pose X=-x <=> -X=x")
+Text(36,0,"(Ou choucroute, au choix)")
+Text(48,0,"e^X=1/e^-X )
+Text(60,0,"lim(e^X)=lim(1/e^-X) X tend -inf")
+Text(72,0,"lim(-X)=+inf X tend -inf")
+Text(84,0,"lim(e^-X)=+inf X tend -inf")
+Text(96,0,"lim(1/e^-X)=0 X tend-inf")
+Text(108,0,"donc lim(1/e^x)=0 x tend +inf")
+Text(120,0,"lim(e^-x)=0 x tend +inf")
+Text(132,0,"Donc lim(e^x)=0 x tend -inf")
+Pause 
+Goto A
+
+Lbl S3
+ClrDraw
+Text(0,0,"lim(e^x/x)=+inf x tend +inf")
+Text(12,0,"Demontrons que :")
+Text(24,0,"e^x>=0.5x^2+x+1 pour tout x>=0")
+Text(36,0,"d(x)=e^x-0.5x^2-x-1")
+Text(48,0,"d'(x)=e^x-x-1")
+Text(60,0,"Ref roc lim(e^x) en +inf")
+Text(72,0,"On sait que e^x>=x+1")
+Text(84,0,"On en deduit d'>=0 sur R")
+Pause 
+ClrDraw
+Line(~20,8,20,8)
+Text(0,0,"X")
+Line(~5,~4,~5,20)
+Text(28,0,"signe d'(x)")
+Line(~20,4,20,4)
+Text(60,0,"var d(x)")
+Line(~20,0,20,0)
+Text(92,0,"signe d(x)")
+Text(0,90,"-inf")
+Line(3,8,3,4)
+Text(0,170,"0")
+Text(28,170,"0")
+Text(0,220,"+inf")
+Text(28,110,"+")
+Text(28,200,"+")
+Text(60,170,"0")
+Line(~4,1,8,3)
+Text(92,110,"-")
+Text(92,200,"+")
+Text(92,170,"0")
+Line(3,0,3,~4)
+Pause 
+ClrDraw
+Text(0,0,"On en deduit que pour tout x>=0")
+Text(12,0,"d(x)>=0")
+Text(24,0,"e^x>=0.5x^2+x+1")
+Text(36,0,"e^x/x>=0.5x+1+1/x car x>0")
+Text(48,0,"lim(0.5x+1+1/x)=+inf x tend +inf")
+Text(60,0,"Par minoration :")
+Text(72,0,"lim(e^x/x)=+inf x tend +inf")
 Pause 
 Goto A
